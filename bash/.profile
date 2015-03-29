@@ -7,7 +7,7 @@
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
 # Add the local bin to the PATH
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+[ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
 
 # Set the path for the user environment
-[ -x "/bin/systemctl" ] || [ -x "/usr/bin/systemctl" ] && systemctl --user import-environment PATH
+[ -x /bin/systemctl ] || [ -x "/usr/bin/systemctl" ] && systemctl --user import-environment PATH

@@ -30,8 +30,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 [ -f /etc/bash?completion ] && source /etc/bash?completion
-[ -f "~/.bash_aliases" ] && source ~/.bash_aliases
-[ -f "~/.bash_private" ] && source ~/.bash_private
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bash_private ] && source ~/.bash_private
 
 # Text editor
 [ -x '/usr/bin/most' ] && export PAGER='most' || export PAGER='less'
