@@ -44,7 +44,7 @@ fi
 # Text editors
 
 # Use X11 vim with mouse and clipboard support if possible
-[ -x /usr/bin/vimx ] && alias vim='vimx'
+[ -x /usr/bin/vimx ] && alias vim='vimx' && alias view='vimx'
 
 [ -x /usr/bin/most ] && export PAGER='most' || export PAGER='less'
 export EDITOR='vim'
