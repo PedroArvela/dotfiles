@@ -29,10 +29,22 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
-[ -f /etc/bash?completion ] && source /etc/bash?completion
+# Bash auto-completion
+if [ -f /etc/bash?completion ]; then
+	# Debian and Gentoo based distros
+	source /etc/bash?completion
+elif [ -f /usr/share/bash-completion/bash_completion ]; then
+	# RHEL based distros
+	source /usr/share/bash-completion/bash_completion
+fi
+
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_private ] && source ~/.bash_private
 
-# Text editor
-[ -x '/usr/bin/most' ] && export PAGER='most' || export PAGER='less'
+# Text editors
+
+# Use X11 vim with mouse and clipboard support if possible
+[ -x /usr/bin/vimx ] && alias vim='vimx'
+
+[ -x /usr/bin/most ] && export PAGER='most' || export PAGER='less'
 export EDITOR='vim'
