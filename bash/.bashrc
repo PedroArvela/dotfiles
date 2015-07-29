@@ -4,8 +4,17 @@
 HISTCONTROL=ignoreboth
 HISTFILESIZE=1000
 
-export LESSOPEN="| lesspipe %s";
-export LESSCLOSE="lesspipe %s %s";
+# lesspipe is a script to allow less to read non-text files. Different distros
+# implement it in different ways.
+[[ -x "/usr/bin/lesspipe" ]] && lesspipe="lesspipe"
+[[ -x "/usr/bin/lesspipe.sh" ]] && lesspipe="lesspipe.sh"
+
+if [[ -n "$lesspipe" ]] && [[ -f "/etc/debian_version" ]]; then
+	eval $($lesspipe)
+elif [[ -n "$lesspipe" ]]; then
+	export LESSOPEN="| $lesspipe %s"
+fi
+unset lesspipe
 
 color_prompt=
 [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && color_prompt=yes
@@ -16,18 +25,31 @@ else
 fi
 unset color_prompt
 
-if [ -x /usr/bin/dircolors ]; then
-	[ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	alias grep='grep --color=auto'
-fi
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# Add colors to ls and grep
+[ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# colored man pages
+man() {
+	env GROFF_NO_SGR=1 \
+	LESS="-r" \
+	LESS_TERMCAP_mb=$'\E[01;31m' \
+	LESS_TERMCAP_md=$'\E[01;31m' \
+	LESS_TERMCAP_me=$'\E[0m' \
+	LESS_TERMCAP_se=$'\E[0m' \
+	LESS_TERMCAP_so=$'\E[01;47;34m' \
+	LESS_TERMCAP_ue=$'\E[0m' \
+	LESS_TERMCAP_us=$'\E[01;32m' \
+	man "$@"
+}
 
 # Bash auto-completion
 if [ -f /etc/bash?completion ]; then
@@ -46,5 +68,5 @@ fi
 # Use X11 vim with mouse and clipboard support if possible
 [ -x /usr/bin/vimx ] && alias vim='vimx' && alias view='vimx -R'
 
-[ -x /usr/bin/most ] && export PAGER='most' || export PAGER='less'
+export PAGER='less'
 export EDITOR='vim'
