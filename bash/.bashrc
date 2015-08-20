@@ -19,7 +19,7 @@ unset lesspipe
 color_prompt=
 [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;36m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo "\[\033[00m\]"; else echo "\[\033[0;31m\]"; fi)$\[\033[00m\] '
+	PS1='\[\033[01;36m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo "\[\033[00m\]"; else echo "\[\033[0;31m\]"; fi)\$\[\033[00m\] '
 else
 	PS1='\u@\h:\w\$ '
 fi
