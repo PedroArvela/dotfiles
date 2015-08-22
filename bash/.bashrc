@@ -19,7 +19,10 @@ unset lesspipe
 color_prompt=
 [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;36m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo "\[\033[00m\]"; else echo "\[\033[0;31m\]"; fi)\$\[\033[00m\] '
+	(( $UID == 0 )) && uidcol=31 || uidcol=36
+	(( $UID == 0 )) && uidstr="\[\033[01;${uidcol}m\]\h" \
+		        || uidstr="\[\033[01;${uidcol}m\]\u\[\033[00m\]@\[\033[01;32m\]\h"
+	PS1="${uidstr}\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo '\[\033[00m\]'; else echo '\[\033[0;31m\]'; fi)\$\[\033[00m\] "
 else
 	PS1='\u@\h:\w\$ '
 fi
@@ -27,7 +30,7 @@ unset color_prompt
 
 # Add colors to ls and grep
 [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-alias ls='ls --color=auto'
+(( $UID == 0 )) && alias ls='ls -a --color=auto' || alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 alias ll='ls -lh'
