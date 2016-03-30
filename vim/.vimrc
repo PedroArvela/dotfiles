@@ -1,6 +1,8 @@
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+set nocompatible
+set mouse=a
 
 if empty($XDG_CACHE_HOME)
   let $XDG_CACHE_HOME = '~/.cache'
@@ -27,9 +29,6 @@ set undodir=$XDG_CACHE_HOME/vim/undo//,/var/tmp//,/tmp//
 set undofile
 
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-
-set nocompatible
-set mouse=a
 
 set colorcolumn=81 cursorline
 highlight ColorColumn ctermbg=0
