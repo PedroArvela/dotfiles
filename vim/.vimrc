@@ -1,8 +1,8 @@
-syntax on
-filetype plugin indent on
-
 set nocompatible
 set mouse=a
+
+syntax on
+filetype plugin indent on
 
 if empty($XDG_CACHE_HOME)
   let $XDG_CACHE_HOME = '~/.cache'
