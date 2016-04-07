@@ -1,4 +1,3 @@
-# bash aliases
 alias ssproxy='ssh -D 8080 -C -q -N '
 
 # Color ls and grep
@@ -11,8 +10,18 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Use X11 vim with mouse and clipboard support if possible
-[ -x /usr/bin/vimx ] && alias vim='vimx' && alias view='vimx -R'
+# Default pager and editor
+export PAGER='less'
+[ -x /usr/bin/nvim ] && export EDITOR='nvim' || export EDITOR='vim'
+
+# Use neovim if possible, fallback to X11 vim
+if [[ -x /usr/bin/nvim ]]; then
+	alias vim='nvim'
+	alias view='nvim -R'
+elif [[ -x /usr/bin/vimx ]]; then
+	alias vim='vimx'
+	alias view='vimx -R'
+fi
 
 # colored man pages
 man() {

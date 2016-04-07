@@ -41,9 +41,6 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-export PAGER='less'
-export EDITOR='vim'
-
 # Source aliases and other settings local to the machine
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_private ] && source ~/.bash_private
