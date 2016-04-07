@@ -47,3 +47,5 @@ export EDITOR='vim'
 # Source aliases and other settings local to the machine
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_private ] && source ~/.bash_private
+
+# vim: ft=sh

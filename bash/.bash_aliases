@@ -27,3 +27,5 @@ man() {
 	LESS_TERMCAP_us=$'\E[01;32m' \
 	man "$@"
 }
+
+# vim: ft=sh

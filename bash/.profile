@@ -16,3 +16,5 @@ export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
 
 # include .bashrc if running on bash and if it exists
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+
+# vim: ft=sh
