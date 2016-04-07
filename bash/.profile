@@ -4,14 +4,15 @@
 [ -z $XDG_CACHE_HOME ]  && export XDG_CACHE_HOME="$HOME/.cache"
 
 # Aggressive XDG-ing
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export HISTFILE="$XDG_CACHE_HOME/bash/history"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
-
-# include .bashrc if running on bash and if it exists
-[ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
 
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
+
+# include .bashrc if running on bash and if it exists
+[ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
