@@ -10,6 +10,7 @@ export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export HISTFILE="$XDG_CACHE_HOME/bash/history"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
