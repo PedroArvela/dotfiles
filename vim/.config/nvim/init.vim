@@ -3,7 +3,7 @@ syntax on
 filetype plugin indent on
 
 " Set cache folder
-set directory=$XDG_CACHE_HOME/nvim/swap
+set directory=$XDG_DATA_HOME/nvim/swap
 
 " Set persistent history in cache folder
 set undofile
