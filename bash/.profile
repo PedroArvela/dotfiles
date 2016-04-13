@@ -15,6 +15,9 @@ export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
 
+# Run machine specific files before sourcing bashrc
+[ -f "$HOME/.profile_private" ] && . "$HOME/.profile_private"
+
 # include .bashrc if running on bash and if it exists
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
