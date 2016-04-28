@@ -30,6 +30,9 @@ set undofile
 
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 
+" Move netrw history file to XDG CACHE
+let g:netrw_home=$XDG_CACHE_HOME.'/vim'
+
 set colorcolumn=81 cursorline
 highlight ColorColumn ctermbg=0
 highlight CursorLine cterm=NONE ctermbg=0
