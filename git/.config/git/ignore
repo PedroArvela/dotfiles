@@ -1,0 +1,15 @@
+# Linux ignores
+.fuse_hidden*
+.directory
+.Trash-*
+
+# Kate swap files
+.*.kate-swp
+.swp.*
+
+# Vim files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+Session.vim
+.netrwhist
+*~
