@@ -5,7 +5,7 @@ syntax on
 filetype plugin indent on
 
 if empty($XDG_CACHE_HOME)
-  let $XDG_CACHE_HOME = '~/.cache'
+  let $XDG_CACHE_HOME = $HOME . '/.cache'
 endif
 
 if !isdirectory($XDG_CACHE_HOME . "/vim/swap")
