@@ -4,6 +4,7 @@
 [ -z $XDG_CACHE_HOME ]  && export XDG_CACHE_HOME="$HOME/.cache"
 
 # Aggressive XDG-ing
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
