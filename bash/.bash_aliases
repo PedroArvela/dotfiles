@@ -2,6 +2,7 @@ alias ssproxy='ssh -D 8080 -C -q -N '
 
 # More aggressive XDGing
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+which mvn >/dev/null && alias mvn='mvn -s $XDG_CONFIG_HOME/maven/settings.xml'
 
 # Color ls and grep
 alias ls='ls --color=auto'
