@@ -1,6 +1,7 @@
 [user]
 	name = Pedro Arvela
 	email = jp.arvela@gmail.com
+	signingkey = 5FDCB6C6A7A69577
 [color]
 	ui = true
 [push]
