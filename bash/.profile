@@ -21,7 +21,7 @@ mkdir -p "$XDG_CACHE_HOME/"{bash,less}
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
 
 # Run machine specific files before sourcing bashrc
-[ -f "$HOME/.profile_private" ] && . "$HOME/.profile_private"
+[ -f "$XDG_CONFIG_HOME/bash/profile_private" ] && . "$XDG_CONFIG_HOME/bash/profile_private"
 
 # include .bashrc if running on bash and if it exists
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"

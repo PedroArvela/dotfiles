@@ -42,7 +42,7 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Source aliases and other settings local to the machine
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bash_private ] && source ~/.bash_private
+[ -f "$XDG_CONFIG_HOME/bash/aliases" ] && source $XDG_CONFIG_HOME/bash/aliases
+[ -f "$XDG_CONFIG_HOME/bash/private" ] && source $XDG_CONFIG_HOME/bash/private
 
 # vim: ft=sh
