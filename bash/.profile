@@ -14,6 +14,9 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 
+# Create the required folders for the applications unable to do so by themselves
+mkdir -p "$XDG_CACHE_HOME/{bash,less}"
+
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
 
