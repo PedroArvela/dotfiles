@@ -1,0 +1,18 @@
+# Home specific compose file
+# This tries to add some Portuguese specific keys to the default compose file.
+
+# Include default locale compose
+include "%L"
+include "%H/.config/X11/compose/win_us.compose"
+
+# Override default c with acute
+<dead_acute> <C> 			: "Ç" Ccedilla	# LATIN CAPITAL LETTER C WITH CEDILLA
+<dead_acute> <c> 			: "ç" ccedilla	# LATIN SMALL LETTER C WITH CEDILLA
+
+# Include and override ordering indicators
+<dead_abovering> <space>		: "º" masculine		# MASCULINE ORDINAL INDICATOR
+<dead_abovering> <dead_abovering>	: "º" masculine		# MASCULINE ORDINAL INDICATOR
+<dead_abovering> <o>			: "º" masculine		# MASCULINE ORDINAL INDICATOR
+<dead_abovering> <a>			: "ª" ordfeminine	# FEMININE ORDINAL INDICATOR
+
+# vim: ft=conf
