@@ -7,9 +7,9 @@ include "%L"
 # Include the win_us_intl file to overwrite the default settings
 # Requires the XCompose file from https://github.com/raelgc/win_us_intl to be
 # in the proper folder.
-include "%H/.config/X11/compose/win_us.compose"
+include "%H/.config/X11/compose/win_us_intl.compose"
 
-# Override default c with acute
+# Ensure vowels with diacritics can be easily typed
 <dead_acute> <C> 			: "Ç" Ccedilla	# LATIN CAPITAL LETTER C WITH CEDILLA
 <dead_acute> <c> 			: "ç" ccedilla	# LATIN SMALL LETTER C WITH CEDILLA
 
