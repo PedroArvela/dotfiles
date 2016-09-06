@@ -18,6 +18,16 @@ if !isdirectory($XDG_CACHE_HOME . "/vim/backup")
 endif
 set backupdir=$XDG_CACHE_HOME/vim/backup//,/var/tmp//,/tmp//
 
+" Set the runtimepath to something adhering to XDG standard
+if empty($XDG_DATA_HOME)
+	let $XDG_DATA_HOME = $HOME . '/.local/share'
+endif
+
+if !isdirectory($XDG_DATA_HOME . '/vim')
+	call mkdir($XDG_DATA_HOME . '/vim')
+endif
+set runtimepath+=$XDG_DATA_HOME/vim
+
 " Double slash does not actually work for backupdir, here's a fix
 au BufWritePre * let &backupext='@'.substitute(substitute(substitute(expand('%:p:h'), '/', '%', 'g'), '\', '%', 'g'), ':', '', 'g')
 
