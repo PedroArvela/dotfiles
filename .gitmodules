@@ -1,0 +1,6 @@
+[submodule "external/emojione-color-font"]
+	path = external/emojione-color-font
+	url = https://github.com/eosrei/emojione-color-font.git
+[submodule "external/win_us_intl"]
+	path = external/win_us_intl
+	url = https://github.com/raelgc/win_us_intl.git
