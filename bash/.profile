@@ -12,6 +12,9 @@ export HISTFILE="$XDG_CACHE_HOME/bash/history"
 export KDEHOME="$XDG_DATA_HOME/kde4"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFVAR="$XDG_CACHE_HOME/texmf"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 
 # Create the required folders for the applications unable to do so by themselves
