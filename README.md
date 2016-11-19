@@ -12,5 +12,6 @@ manually.
 ```bash
 git clone https://github.com/PedroArvela/dotfiles.git
 cd dotfiles
+git submodule update --init --recursive
 stow -t ~ <configuration package>
 ```
