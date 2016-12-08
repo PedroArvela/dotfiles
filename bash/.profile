@@ -7,6 +7,7 @@
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GPODDER_HOME="$XDG_CONFIG_HOME/gpodder"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export HISTFILE="$XDG_CACHE_HOME/bash/history"
 export KDEHOME="$XDG_DATA_HOME/kde4"
