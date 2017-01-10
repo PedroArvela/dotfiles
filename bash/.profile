@@ -21,7 +21,7 @@ export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 
 # Merge resources files from config folder
-[ -n "$DISPLAY" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
+[ -n "$DISPLAY" ] && [ -f "$XDG_CONFIG_HOME/X11/resources" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
 
 # Create the required folders for the applications unable to do so by themselves
 mkdir -p "$XDG_CACHE_HOME/"{bash,less}
