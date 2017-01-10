@@ -18,6 +18,10 @@ export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texmf"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
+
+# Merge resources files from config folder
+[ -n "$DISPLAY" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
 
 # Create the required folders for the applications unable to do so by themselves
 mkdir -p "$XDG_CACHE_HOME/"{bash,less}
