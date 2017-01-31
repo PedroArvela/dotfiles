@@ -15,6 +15,18 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Color IP utility
+new_ip() {
+	old_ip=$(which ip)
+	if [ "$($old_ip -V | cut -c 24-)" -gt "150413" ] && [ -t 1 ]; then
+		$old_ip -c $@
+	else
+		$old_ip $@
+	fi
+}
+
+alias ip=new_ip
+
 # Default pager and editor
 export PAGER='less'
 [ -x /usr/bin/nvim ] && export EDITOR='nvim' || export EDITOR='vim'
