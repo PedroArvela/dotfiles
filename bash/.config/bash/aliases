@@ -19,6 +19,7 @@ alias l='ls -CF'
 new_ip() {
 	old_ip=$(which ip)
 	# Compare version string with first version to support color output
+	# Also confirm that stdout is being output to a terminal
 	if [ "$($old_ip -V | cut -c 24-)" -gt "150413" ] && [ -t 1 ]; then
 		$old_ip -c $@
 	else
