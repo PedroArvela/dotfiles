@@ -6,3 +6,13 @@
 	ui = true
 [push]
 	default = simple
+[log]
+	decorate = auto
+[format]
+	pretty = %Cred%h%Creset: %C(bold blue)<%an>%Creset %C(white)%s%Creset %C(yellow)(%cr)%Creset %C(bold red)%d%Creset
+[alias]
+	glog = log --all --graph
+[core]
+	pager = less -XF
+[status]
+	short = true
