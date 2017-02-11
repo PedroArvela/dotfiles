@@ -16,6 +16,8 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias rcp="rsync --archive --one-file-system --hard-links --human-readable --inplace --numeric-ids --delete --delete-excluded --progress --compress"
+
 # Color IP utility
 new_ip() {
 	old_ip=$(which ip)
