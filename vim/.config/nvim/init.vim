@@ -23,3 +23,12 @@ set ruler showcmd title showmode modeline
 set splitbelow splitright
 
 map Q gq
+
+" Show special characters and trailing whitespace
+set list
+set listchars=tab:▓▒
+set listchars+=trail:░
+
+" Special overrides for specific filetypes
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
