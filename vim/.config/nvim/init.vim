@@ -22,6 +22,7 @@ set ruler showcmd title showmode modeline
 " More natural split opening
 set splitbelow splitright
 
+" Map the Q letter to hard-wrapping specific sections
 map Q gq
 
 " Show special characters and trailing whitespace
