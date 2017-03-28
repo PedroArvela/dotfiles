@@ -6,7 +6,6 @@
 # Aggressive XDG-ing
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPODDER_HOME="$XDG_CONFIG_HOME/gpodder"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
@@ -19,14 +18,21 @@ export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texmf"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 
 # Merge resources files from config folder
 [ -n "$DISPLAY" ] && [ -f "$XDG_CONFIG_HOME/X11/resources" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
 
 # Create the required folders for the applications unable to do so by themselves
 mkdir -p "$XDG_CACHE_HOME/"{bash,less}
+
+# Configure GPG automatically if it exists
+if [ -x /usr/bin/gpg2 ]; then
+	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+	export SSH_AUTH_SOCK="$(gpgconf --list-dirs | grep ^agent-socket: | cut -d: -f2).ssh"
+	gpgconf --create-socketdir
+fi
 
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
