@@ -30,7 +30,6 @@ mkdir -p "$XDG_CACHE_HOME/"{bash,less}
 # Configure GPG automatically if it exists
 if [ -x /usr/bin/gpg2 ]; then
 	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-	export SSH_AUTH_SOCK="$(gpgconf --list-dirs | grep ^agent-socket: | cut -d: -f2).ssh"
 	gpgconf --create-socketdir
 fi
 
