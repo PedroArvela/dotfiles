@@ -28,9 +28,14 @@ export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 mkdir -p "$XDG_CACHE_HOME/"{bash,less}
 
 # Configure GPG automatically if it exists
-if [ -x /usr/bin/gpg2 ]; then
+if [ -x "/usr/bin/gpg2" ]; then
 	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 	gpgconf --create-socketdir
+fi
+
+# Export SSH Agent Socket if it is running as user service
+if [ -S "$XDG_RUNTIME_DIR/ssh-agent" ]; then
+	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
 fi
 
 # Add the local bin to the PATH
