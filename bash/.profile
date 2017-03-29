@@ -34,8 +34,12 @@ if [ -x "/usr/bin/gpg2" ]; then
 fi
 
 # Export SSH Agent Socket if it is running as user service
-if [ -S "$XDG_RUNTIME_DIR/ssh-agent" ]; then
-	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
+if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
+	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+fi
+
+if [ -f "$XDG_RUNTIME_DIR/ssh-agent.pid" ]; then
+	export SSH_AGENT_PID=$(cat $XDG_RUNTIME_DIR/ssh-agent.pid)
 fi
 
 # Add the local bin to the PATH
