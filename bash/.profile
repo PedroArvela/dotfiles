@@ -38,10 +38,6 @@ if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
 	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 fi
 
-if [ -f "$XDG_RUNTIME_DIR/ssh-agent.pid" ]; then
-	export SSH_AGENT_PID=$(cat $XDG_RUNTIME_DIR/ssh-agent.pid)
-fi
-
 # Add the local bin to the PATH
 [ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
 
