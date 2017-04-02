@@ -1,0 +1,46 @@
+#!/bin/bash
+
+args=()
+hoststr=""
+port=""
+
+while [[ $# -gt 0 ]]; do
+	key=$1
+	args+=("$key")
+
+	case $key in
+	"-p")
+		shift
+		args+=("$1")
+		port="$1"
+		;;
+	"-b"|"-c"|"-D"|"-E"|"-e"|"-F"|"-I"|"-i"|"-J"|"-L"|"-l"|"-m"|"-O"|\
+	"-o"|"-Q"|"-R"|"-S"|"-W"|"-w")
+		shift
+		args+=("$1")
+		;;
+	"-*")
+		;;
+	*)
+		[ -z "$hoststr" ] && hoststr="$key"
+	esac
+
+	shift
+done
+
+hostinfo=(${hoststr//@/ })
+if [[ "${#hostinfo[@]}" == "2" ]]; then
+	user="${hostinfo[0]}"
+	host="${hostinfo[1]}"
+else
+	user="$USER"
+	host="${hostinfo[0]}"
+fi
+
+if [[ -z "$port" ]]; then
+	port="22"
+fi
+
+IFS="" export SSHPASS="$(ksshaskpass -- ${user}@${host}:${port})"
+
+sshpass -e ssh "${args[@]}"
