@@ -59,4 +59,7 @@ man() {
 	man "$@"
 }
 
+# convert XML to a dot file which can be used by graphviz
+alias xml2dot="xsltproc /usr/share/bison/xslt/xml2dot.xsl"
+
 # vim: ft=sh
