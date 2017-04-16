@@ -17,7 +17,7 @@ call plug#begin()
 Plug 'sbdchd/neoformat'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'neomake/neomake'
-Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'rliang/nvim-pygtk3', {'do': 'make install'}
 
 call plug#end()
@@ -27,6 +27,10 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <leader>f :Neoformat<cr>
 
 " Some nice colors for right margin and current line
+set termguicolors
+let g:neosolarized_termtrans=1
+set background=dark
+colorscheme NeoSolarized
 set colorcolumn=81 cursorline
 highlight ColorColumn ctermbg=0
 highlight CursorLine cterm=NONE ctermbg=0
