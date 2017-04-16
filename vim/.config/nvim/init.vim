@@ -24,7 +24,7 @@ call plug#end()
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-nmap <leader>f :Neoformat<CR>
+nmap <leader>f :Neoformat<cr>
 
 " Some nice colors for right margin and current line
 set colorcolumn=81 cursorline
@@ -46,13 +46,24 @@ nnoremap Q gq
 tnoremap <leader><esc> <C-\><C-n>
 
 " Better navigation in splits
-nnoremap <leader>% :vsp<CR>
-nnoremap <leader>" :sp<CR>
+nnoremap <leader>% :vsp<cr>
+nnoremap <leader>" :sp<cr>
 
 nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
+
+" Yank and paste to clipboard
+function! ClipboardYank()
+	call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+	let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+nnoremap <leader>y :call ClipboardYank()<cr>
+nnoremap <leader>p :call ClipboardPaste()<cr>
 
 " Show special characters and trailing whitespace
 set list
