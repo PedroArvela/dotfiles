@@ -2,12 +2,29 @@ set mouse=a
 syntax on
 filetype plugin indent on
 
+let mapleader = ','
+
 " Set cache folder
 set directory=$XDG_DATA_HOME/nvim/swap
 
 " Set persistent history in cache folder
 set undofile
 set undodir=$XDG_CACHE_HOME/nvim/undo
+
+" Install plugins for IDE usage
+call plug#begin()
+
+Plug 'sbdchd/neoformat'
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'neomake/neomake'
+Plug 'altercation/vim-colors-solarized'
+Plug 'rliang/nvim-pygtk3', {'do': 'make install'}
+
+call plug#end()
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+nmap <leader>f :Neoformat<CR>
 
 " Some nice colors for right margin and current line
 set colorcolumn=81 cursorline
@@ -23,7 +40,19 @@ set ruler showcmd title showmode modeline
 set splitbelow splitright
 
 " Map the Q letter to hard-wrapping specific sections
-map Q gq
+nnoremap Q gq
+
+" Map the terminal escape to normal vim bindings
+tnoremap <leader><esc> <C-\><C-n>
+
+" Better navigation in splits
+nnoremap <leader>% :vsp<CR>
+nnoremap <leader>" :sp<CR>
+
+nnoremap <leader>h <C-W><C-H>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
 
 " Show special characters and trailing whitespace
 set list
