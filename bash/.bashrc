@@ -21,7 +21,7 @@ color_prompt=
 if [ "$color_prompt" = yes ]; then
 	(( $UID == 0 )) && uidcol=31 || uidcol=36
 	(( $UID == 0 )) && uidstr="\[\033[01;${uidcol}m\]\h" \
-		        || uidstr="\[\033[01;${uidcol}m\]\u\[\033[00m\]@\[\033[01;32m\]\h"
+	                || uidstr="\[\033[01;${uidcol}m\]\u\[\033[00m\]@\[\033[01;32m\]\h"
 	PS1="${uidstr}\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo '\[\033[00m\]'; else echo '\[\033[0;31m\]'; fi)\\$\[\033[00m\] "
 else
 	PS1='\u@\h:\w\$ '
