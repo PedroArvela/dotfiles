@@ -24,7 +24,7 @@ if empty($XDG_DATA_HOME)
 endif
 
 if !isdirectory($XDG_DATA_HOME . '/vim')
-	call mkdir($XDG_DATA_HOME . '/vim')
+	call mkdir($XDG_DATA_HOME . '/vim', "p")
 endif
 set runtimepath+=$XDG_DATA_HOME/vim
 
