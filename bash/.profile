@@ -18,6 +18,7 @@ export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texmf"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 
