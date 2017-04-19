@@ -5,6 +5,7 @@
 
 # Aggressive XDG-ing
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
+export ELECTRON_FORCE_WINDOW_MENU_BAR=1 # Workaround for https://github.com/electron/electron/issues/8455
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
 export GPODDER_HOME="$XDG_CONFIG_HOME/gpodder"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
@@ -27,12 +28,6 @@ export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
 
 # Create the required folders for the applications unable to do so by themselves
 mkdir -p "$XDG_CACHE_HOME/"{bash,less}
-
-# Configure GPG automatically if it exists
-if [ -x "/usr/bin/gpg2" ]; then
-	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-	gpgconf --create-socketdir
-fi
 
 # Export SSH Agent Socket if it is running as user service
 if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
