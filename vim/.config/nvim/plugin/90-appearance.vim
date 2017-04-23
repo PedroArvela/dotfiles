@@ -11,6 +11,7 @@ colorscheme NeoSolarized
 set colorcolumn=81 cursorline
 highlight ColorColumn ctermbg=0
 highlight CursorLine cterm=NONE ctermbg=0
+"highlight CursorLine guibg=#073642 guifg=#839496
 
 set ruler showcmd title showmode modeline
 
