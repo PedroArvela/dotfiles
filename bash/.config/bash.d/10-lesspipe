@@ -1,0 +1,18 @@
+# lesspipe is a script to allow less to read non-text files. Different distros
+# implement it in different ways.
+[[ -x "/usr/bin/lesspipe" ]] && lesspipe="lesspipe"
+[[ -x "/usr/bin/lesspipe.sh" ]] && lesspipe="lesspipe.sh"
+
+lesspipe_out="$($lesspipe)"
+
+# If there is output when passed an empty file, then that output needs to be
+# eval-ed. Otherwise, we need to export the variables ourselves.
+if [[ -z "$lesspipe_out" ]]; then
+	export LESSOPEN="| $lesspipe %s"
+else
+	eval $lesspipe_out
+fi
+
+unset lesspipe lesspipe_out
+
+# vim: ft=sh

@@ -1,0 +1,4 @@
+# Add the local bin to the PATH
+[ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
+
+# vim: ft=sh

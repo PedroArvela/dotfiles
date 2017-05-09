@@ -1,0 +1,8 @@
+# Bash auto-completion
+if [ -f /etc/bash?completion ]; then
+	source /etc/bash?completion
+elif [ -f /usr/share/bash-completion/bash_completion ]; then
+	source /usr/share/bash-completion/bash_completion
+fi
+
+# vim: ft=sh

@@ -1,0 +1,20 @@
+# Aggressive XDG-ing
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
+
+in_path tmux && alias tmux='\tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+in_path mvn  && alias mvn='\mvn -s $XDG_CONFIG_HOME/maven/settings.xml'
+
+# Only alias wget if it is a version with HSTS support
+[ $(\wget -V | head -n 1 | cut -c 12-13) -gt "17" ] && alias wget="\\wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+
+# Export SSH Agent Socket if it is running as user service
+if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
+	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+fi
+
+# vim: ft=sh

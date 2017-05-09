@@ -1,0 +1,8 @@
+# Export XDG path for bash and less history files
+export HISTFILE="$XDG_CACHE_HOME/bash/history"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+# Create the required folders for the applications unable to do so by themselves
+mkdir -p "$XDG_CACHE_HOME"/{bash,less}
+
+# vim: ft=sh

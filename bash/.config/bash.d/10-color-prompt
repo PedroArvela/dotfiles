@@ -1,0 +1,52 @@
+# Set custom aliases and colors if the terminal supports color output
+if in_path tput && [[ "$(tput colors)" -ge 8 ]]; then
+	# Use a different color and format if the user is root
+	(( $UID == 0 )) && uidcol=31 || uidcol=36
+	(( $UID == 0 )) && uidstr="\[\033[01;${uidcol}m\]\h" \
+	                || uidstr="\[\033[01;${uidcol}m\]\u\[\033[00m\]@\[\033[01;32m\]\h"
+
+	# Allow the return code of the previous program decide the color of $
+	PS1="${uidstr}\[\033[01;34m\] \W $(if [[ $? == 0 ]]; then echo '\[\033[00m\]'; else echo '\[\033[0;31m\]'; fi)\\$\[\033[00m\] "
+else
+	PS1='\u@\h:\w\$ '
+fi
+
+# Set filetype colors
+[ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Color ls and grep
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Compare version string with first version to support color output
+if [ "$(\ip -V | cut -c 24-)" -gt "150413" ]; then
+	new_ip() {
+		# Confirm that stdout is being output to a terminal
+		if [ -t 1 ]; then
+			\ip -c "$@"
+		else
+			\ip "$@"
+		fi
+	}
+
+	alias ip=new_ip
+fi
+
+# colored man pages
+man() {
+	env GROFF_NO_SGR=1 \
+	LESS="-r" \
+	LESS_TERMCAP_mb=$'\E[01;31m' \
+	LESS_TERMCAP_md=$'\E[01;31m' \
+	LESS_TERMCAP_me=$'\E[0m' \
+	LESS_TERMCAP_se=$'\E[0m' \
+	LESS_TERMCAP_so=$'\E[01;47;34m' \
+	LESS_TERMCAP_ue=$'\E[0m' \
+	LESS_TERMCAP_us=$'\E[01;32m' \
+	man "$@"
+}
+
+# vim: ft=sh

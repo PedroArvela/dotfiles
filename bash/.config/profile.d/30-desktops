@@ -1,0 +1,5 @@
+# Export XDG paths for legacy desktop environments
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export KDEHOME="$XDG_DATA_HOME/kde4"
+
+# vim: ft=sh

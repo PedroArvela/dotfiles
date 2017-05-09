@@ -1,3 +1,2 @@
-/bash/.config/bash/private
-/bash/.config/bash/profile_private
+/bash/.config/*.d/90-private
 /vim/.config/nvim/plugged

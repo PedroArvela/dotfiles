@@ -1,0 +1,7 @@
+# Export XDG path for XCompose file
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
+
+# Merge resources files from config folder
+[ -n "$DISPLAY" ] && [ -f "$XDG_CONFIG_HOME/X11/resources" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
+
+# vim: ft=sh

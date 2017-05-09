@@ -3,43 +3,9 @@
 [ -z $XDG_DATA_HOME ]   && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z $XDG_CACHE_HOME ]  && export XDG_CACHE_HOME="$HOME/.cache"
 
-# Aggressive XDG-ing
-export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
-export ELECTRON_FORCE_WINDOW_MENU_BAR=1 # Workaround for https://github.com/electron/electron/issues/8455
-export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GPODDER_HOME="$XDG_CONFIG_HOME/gpodder"
-export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export HISTFILE="$XDG_CACHE_HOME/bash/history"
-export KDEHOME="$XDG_DATA_HOME/kde4"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
-export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
-export TEXMFHOME="$XDG_DATA_HOME/texmf"
-export TEXMFVAR="$XDG_CACHE_HOME/texmf"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
-export WINEPREFIX="$XDG_DATA_HOME/wine"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/compose"
-
-# Merge resources files from config folder
-[ -n "$DISPLAY" ] && [ -f "$XDG_CONFIG_HOME/X11/resources" ] && xrdb -load "$XDG_CONFIG_HOME/X11/resources"
-
-# Create the required folders for the applications unable to do so by themselves
-mkdir -p "$XDG_CACHE_HOME/"{bash,less}
-
-# Export SSH Agent Socket if it is running as user service
-if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
-	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
-fi
-
-# Add the local bin to the PATH
-[ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
-
-# Run machine specific files before sourcing bashrc
-[ -f "$XDG_CONFIG_HOME/bash/profile_private" ] && . "$XDG_CONFIG_HOME/bash/profile_private"
+for file in $XDG_CONFIG_HOME/profile.d/*; do
+	source $file
+done
 
 # include .bashrc if running on bash and if it exists
 [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
