@@ -5,9 +5,8 @@
 HISTCONTROL="ignorespace,erasedups"
 HISTFILESIZE=1000
 
-for file in $XDG_CONFIG_HOME/profile.d/*; do
-	source $file
-done
+# Source general settings not limited to an interactive shell
+source $HOME/.profile
 
 for file in $XDG_CONFIG_HOME/bash.d/*; do
 	source $file

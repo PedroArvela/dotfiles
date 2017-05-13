@@ -7,7 +7,4 @@ for file in $XDG_CONFIG_HOME/profile.d/*; do
 	source $file
 done
 
-# include .bashrc if running on bash and if it exists
-[ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
-
 # vim: ft=sh
