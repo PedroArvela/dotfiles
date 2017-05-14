@@ -7,4 +7,12 @@ for file in $XDG_CONFIG_HOME/profile.d/*; do
 	source $file
 done
 
+# Ensure you only include .bashrc once, no matter if you source .bashrc first
+# or .profile first
+if [[ -z "$bashrc_include" ]]; then
+	export bashrc_include="ongoing"
+	source $HOME/.bashrc
+	unset bashrc_include
+fi
+
 # vim: ft=sh
