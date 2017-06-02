@@ -1,4 +1,7 @@
+# Search for completions using `complete -p <command>`
+
 alias ssproxy='ssh -D 8080 -C -q -N '
+complete -F _ssh sshproxy
 
 # Other ls aliases
 alias sl='ls'
@@ -7,6 +10,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias rcp="rsync --archive --one-file-system --hard-links --human-readable --inplace --numeric-ids --delete --delete-excluded --progress --compress"
+
+alias rsyncp="rsync -e sshp -ah --progress --delete --delete-excluded"
 
 # Default pager and editor
 export PAGER='less'
@@ -20,5 +25,8 @@ elif [[ -x /usr/bin/vimx ]]; then
 	alias vim='vimx'
 	alias view='vimx -R'
 fi
+
+# Provide completions for some existing commands
+complete -F _ssh sshp
 
 # vim: ft=sh
