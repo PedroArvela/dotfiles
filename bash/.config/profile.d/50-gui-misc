@@ -1,6 +1,8 @@
 # Export XDG paths for GUI applications
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
 export GPODDER_HOME="$XDG_CONFIG_HOME/gpodder"
+export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
+export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea.vmoptions"
 export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 
