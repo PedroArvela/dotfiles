@@ -3,6 +3,9 @@
 alias ssproxy='ssh -D 8080 -C -q -N '
 complete -F _ssh sshproxy
 
+alias gitp='env GIT_SSH_COMMAND=sshp git'
+complete -F __git_wrap__git_main gitp
+
 # Other ls aliases
 alias sl='ls'
 alias ll='ls -lh'
