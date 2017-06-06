@@ -41,6 +41,8 @@ if [[ -z "$port" ]]; then
 	port="22"
 fi
 
-IFS="" export SSHPASS="$(ksshaskpass -- ${user}@${host}:${port} || true)"
+dialog="Enter passphrase for ${user}@${host}:${port}: "
+
+IFS="" export SSHPASS=$(ksshaskpass "${dialog}" || true)
 
 sshpass -e ssh "${args[@]}"
