@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 # Don't save commands which start with spaces. Delete existing duplicates.
-HISTCONTROL="ignorespace,erasedups"
+HISTCONTROL="ignoreboth:erasedups"
 HISTFILESIZE=1000
 
 # Source general settings not limited to an interactive shell
