@@ -6,8 +6,4 @@ export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea.vmoptions"
 export STUDIO_PROPERTIES="$XDG_CONFIG_HOME/android-studio/idea.properties"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 
-# Workaround for buggy Electron apps with Global Menu.
-# See https://github.com/electron/electron/issues/8455
-export ELECTRON_FORCE_WINDOW_MENU_BAR=1
-
 # vim: ft=sh
