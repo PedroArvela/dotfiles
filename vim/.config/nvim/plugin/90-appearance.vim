@@ -4,36 +4,19 @@ syntax on
 set colorcolumn=81 cursorline
 set ruler showcmd title showmode modeline
 
+" Use dark colors always, never light background
+set background=dark
+
 " Some nice colors for right margin and current line
-highlight ColorColumn ctermbg=0
-highlight CursorLine cterm=NONE ctermbg=0
+highlight ColorColumn ctermbg=black
+highlight CursorLine cterm=NONE ctermbg=black
 
-if ! has("gui_running")
-	" Use a transparent background in neosolarized when in terminal
-	let g:neosolarized_termtrans=1
-endif
+" Show special characters and trailing whitespace
+set list
+set listchars=tab:▓▒
+set listchars+=trail:░
 
-" Detect if display used has support for "true" colors
-if has("gui_running") || &t_Co >= 256
-	let truecolor = 1
-else
-	let truecolor = 0
-endif
+" Highlight whitespace such as tabs and trailing spaces with a softer color
+" Note: Seems not to work, due to this bug, https://vi.stackexchange.com/questions/7924/specialkey-foreground-color-w-cursorline-set
+highlight SpecialKey cterm=bold ctermfg=darkblue
 
-if truecolor == 1
-	" Use gui colors even in terminal mode
-	set termguicolors
-
-	" Use dark colors always, never light background
-	set background=dark
-
-	colorscheme NeoSolarized
-
-	" Show special characters and trailing whitespace
-	set list
-	set listchars=tab:▓▒
-	set listchars+=trail:░
-
-	" Highlight whitespace such as tabs and trailing spaces with a softer color
-	highlight SpecialKey guibg=none guifg=#586e75
-endif
