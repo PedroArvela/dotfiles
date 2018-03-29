@@ -13,7 +13,10 @@
 [alias]
 	glog = log --all --graph
 	wdiff = diff --word-diff=color --unified=1
+	lst = status --long
+	st = status
 [core]
 	pager = less -XF
 [status]
 	short = true
+# vim: ft=gitconfig

@@ -22,7 +22,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # Compare version string with first version to support color output
-if [ "$(\ip -V | cut -c 24-)" -gt "150413" ]; then
+if in_path ip && [ "$(\ip -V | cut -c 24-)" -gt "150413" ]; then
 	new_ip() {
 		# Confirm that stdout is being output to a terminal
 		if [ -t 1 ]; then

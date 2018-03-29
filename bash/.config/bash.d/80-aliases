@@ -18,15 +18,17 @@ alias rsyncp="rsync -e sshp -ah --progress --delete --delete-excluded"
 
 # Default pager and editor
 export PAGER='less'
-[ -x /usr/bin/nvim ] && export EDITOR='nvim' || export EDITOR='vim'
+in_path nvim && export EDITOR='nvim' || export EDITOR='vim'
 
 # Use neovim if possible, fallback to X11 vim
-if [[ -x /usr/bin/nvim ]]; then
+if in_path nvim; then
 	alias vim='nvim'
 	alias view='nvim -R'
-elif [[ -x /usr/bin/vimx ]]; then
+	alias vimdiff='nvim -d'
+elif in_path vimx; then
 	alias vim='vimx'
 	alias view='vimx -R'
+	alias vimdiff='vimx -d'
 fi
 
 # Provide completions for some existing commands

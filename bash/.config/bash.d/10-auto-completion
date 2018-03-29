@@ -3,6 +3,8 @@ if [ -f /etc/bash?completion ]; then
 	source /etc/bash?completion
 elif [ -f /usr/share/bash-completion/bash_completion ]; then
 	source /usr/share/bash-completion/bash_completion
+elif [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
+	source $(brew --prefix)/etc/profile.d/bash_completion.sh
 fi
 
 # vim: ft=sh
