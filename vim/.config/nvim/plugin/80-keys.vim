@@ -5,6 +5,13 @@ nmap <leader>f :Neoformat<cr>
 " Map the Q letter to hard-wrapping specific sections
 nnoremap Q gq
 
+" Map Ctrl-A and Ctrl-E to Home and End respectively
+nnoremap <C-a> ^
+nnoremap <C-e> $
+
+inoremap <C-a> <C-O>^
+inoremap <C-e> <C-O>$
+
 " Better navigation in splits
 nnoremap <leader>% :vsp<cr>
 nnoremap <leader>$ :sp<cr>
