@@ -1,5 +1,7 @@
 # Aggressive XDG-ing
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
@@ -16,5 +18,7 @@ in_path mvn  && alias mvn='\mvn -s $XDG_CONFIG_HOME/maven/settings.xml'
 if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
 	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 fi
+
+in_path kubectl && alias kubectl='\kubectl --kubeconfig "$XDG_CONFIG_HOME/kube/config" --cache-dir="$XDG_CACHE_HOME/kube"'
 
 # vim: ft=sh
