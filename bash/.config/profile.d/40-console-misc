@@ -4,10 +4,17 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"<Paste>
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config:$HOME/.kube/config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
+
+# Create folders for psql, as it cannot create them autonomously
+mkdir -p "$XDG_CONFIG_HOME/pg" && mkdir -p "$XDG_CACHE_HOME/pg"
 
 in_path tmux && alias tmux='\tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 in_path mvn  && alias mvn='\mvn -s $XDG_CONFIG_HOME/maven/settings.xml'
