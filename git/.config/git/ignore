@@ -57,3 +57,18 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# VSCode files
+.vscode/
+
+# Specific to Local DigitalOcean API Key
+playbooks/inventory/digital_ocean.ini
+
+# macOS files
+.DS_Store
+
+# texstudio files
+*.txss
+
+# python virtual envs
+/env/
