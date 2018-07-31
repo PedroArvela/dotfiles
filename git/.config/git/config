@@ -4,6 +4,8 @@
 	signingkey = 5FDCB6C6A7A69577
 [color]
 	ui = true
+[pull]
+	ff = only
 [push]
 	default = simple
 [log]
