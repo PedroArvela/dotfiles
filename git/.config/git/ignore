@@ -61,9 +61,6 @@ fabric.properties
 # VSCode files
 .vscode/
 
-# Specific to Local DigitalOcean API Key
-playbooks/inventory/digital_ocean.ini
-
 # macOS files
 .DS_Store
 
