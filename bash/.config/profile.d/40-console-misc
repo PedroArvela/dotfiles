@@ -1,4 +1,5 @@
 # Aggressive XDG-ing
+export ANDROID_HOME="$XDG_DATA_HOME/Android/Sdk"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
