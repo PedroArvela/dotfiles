@@ -1,6 +1,3 @@
 [submodule "external/win_us_intl"]
 	path = external/win_us_intl
 	url = https://github.com/raelgc/win_us_intl.git
-[submodule "external/vim-plug"]
-	path = external/vim-plug
-	url = https://github.com/junegunn/vim-plug.git

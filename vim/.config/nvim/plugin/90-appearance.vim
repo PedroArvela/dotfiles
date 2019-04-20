@@ -19,4 +19,3 @@ set listchars+=trail:░
 " Highlight whitespace such as tabs and trailing spaces with a softer color
 " Note: Seems not to work, due to this bug, https://vi.stackexchange.com/questions/7924/specialkey-foreground-color-w-cursorline-set
 highlight SpecialKey cterm=bold ctermfg=darkblue
-
