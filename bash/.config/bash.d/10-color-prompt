@@ -49,4 +49,7 @@ man() {
 	man "$@"
 }
 
+# colored diff
+in_path colordiff && alias diff=colordiff
+
 # vim: ft=sh
