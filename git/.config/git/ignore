@@ -69,3 +69,4 @@ fabric.properties
 
 # python virtual envs
 /env/
+/venv/
