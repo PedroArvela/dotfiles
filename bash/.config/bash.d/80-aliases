@@ -3,9 +3,6 @@
 alias ssproxy='ssh -D 8080 -C -q -N '
 complete -F _ssh sshproxy
 
-alias gitp='env GIT_SSH_COMMAND=sshp git'
-complete -F __git_wrap__git_main gitp
-
 # Other ls aliases
 alias sl='ls'
 alias ll='ls -lh'
@@ -16,22 +13,26 @@ alias rcp="rsync --archive --one-file-system --hard-links --human-readable --inp
 
 alias rsyncp="rsync -e sshp -ah --progress --delete --delete-excluded"
 
-# Default pager and editor
+# Default pager
 export PAGER='less'
-in_path nvim && export EDITOR='nvim' || export EDITOR='vim'
 
 # Use neovim if possible, fallback to X11 vim
 if in_path nvim; then
 	alias vim='nvim'
 	alias view='nvim -R'
 	alias vimdiff='nvim -d'
+	export EDITOR='nvim'
 elif in_path vimx; then
 	alias vim='vimx'
 	alias view='vimx -R'
 	alias vimdiff='vimx -d'
+	export EDITOR='vimx'
+else
+	export EDITOR='vim'
 fi
 
-# Provide completions for some existing commands
-complete -F _ssh sshp
+# MacOS clipboard commands in Linux
+in_path pbcopy  || alias pbcopy='xclip -selection clipboard'
+in_path pbpaste || alias pbpaste='xclip -selection clipboard -o'
 
 # vim: ft=sh
