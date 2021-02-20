@@ -1,3 +1,0 @@
-#!/bin/bash
-
-env SSH_ASKPASS=ksshaskpass ssh-add
