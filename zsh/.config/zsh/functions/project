@@ -1,0 +1,8 @@
+# For git workspace
+function project {
+	local filter="$@"
+	local chosen_project=$(git workspace list | fzf -q "$filter")
+	if [[ -n $chosen_project ]]; then
+		pushd "$GIT_WORKSPACE/$chosen_project"
+	fi
+}

@@ -1,0 +1,7 @@
+# Add the local bin to the PATH
+[[ -d "$HOME/.local/bin" ]] && path+=("$HOME/.local/bin")
+
+# Add zsh functions
+fpath=( ~/.config/zsh/functions "${fpath[@]}" )
+
+# vim: ft=sh

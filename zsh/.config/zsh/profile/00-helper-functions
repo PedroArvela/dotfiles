@@ -1,0 +1,5 @@
+in_path() {
+	(( $+commands[$1] ))
+}
+
+# vim: ft=sh

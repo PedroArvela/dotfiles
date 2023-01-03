@@ -1,0 +1,28 @@
+mkdir -p "${XDG_CACHE_HOME}/zsh"
+
+# Case insensitive globbing
+setopt NO_CASE_GLOB
+
+# Enable shell history and keep only the most recent entries
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+setopt EXTENDED_HISTORY
+SAVEHIST=5000
+HISTSIZE=2000
+
+# Ensure that history is shared across sessions, appended to the file, and updated
+# on every command.
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# expire duplicates first, do not store duplications, ignore duplicates when
+# searching, removes blank lines from history, ignore items that start with spaces
+setopt HIST_EXPIRE_DUPS_FIRST 
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+
+# vim: ft=sh

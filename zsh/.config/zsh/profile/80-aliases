@@ -1,0 +1,52 @@
+# Other ls aliases
+alias sl='ls'
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias rcp="rsync --archive --one-file-system --hard-links --human-readable --inplace --numeric-ids --delete --delete-excluded --progress --compress"
+
+alias rsyncp="rsync -e sshp -ah --progress --delete --delete-excluded"
+
+# Default pager
+export PAGER='less'
+
+# Use neovim if possible, fallback to X11 vim
+if in_path nvim; then
+	alias vim='nvim'
+	alias view='nvim -R'
+	alias vimdiff='nvim -d'
+	export EDITOR='nvim'
+elif in_path vimx; then
+	alias vim='vimx'
+	alias view='vimx -R'
+	alias vimdiff='vimx -d'
+	export EDITOR='vimx'
+else
+	export EDITOR='vim'
+fi
+
+# Shorter kubectl
+if in_path kubectl; then
+	alias ktl="kubectl"
+fi
+
+# Shorter kubectx
+if in_path kubectx; then
+	alias kctx="kubectx"
+	alias kns="kubens"
+fi
+
+# MacOS clipboard commands in Linux
+in_path pbcopy  || alias pbcopy='xclip -selection clipboard'
+in_path pbpaste || alias pbpaste='xclip -selection clipboard -o'
+
+# Autoload functions
+autoload project
+
+# No longer using docker desktop on MacOs, but I still want to have docker-like
+# commands
+alias docker="podman"
+alias docker-compose="podman-compose"
+
+# vim: ft=sh
