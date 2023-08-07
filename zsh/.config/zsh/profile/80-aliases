@@ -44,9 +44,4 @@ in_path pbpaste || alias pbpaste='xclip -selection clipboard -o'
 # Autoload functions
 autoload project
 
-# No longer using docker desktop on MacOs, but I still want to have docker-like
-# commands
-alias docker="podman"
-alias docker-compose="podman-compose"
-
 # vim: ft=sh

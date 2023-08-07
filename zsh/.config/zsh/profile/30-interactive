@@ -1,0 +1,9 @@
+if [[ -o interactive ]]; then
+
+export CLICOLOR=1
+
+alias ls='ls --color=auto'
+
+fi
+
+# vim: ft=sh
