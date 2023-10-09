@@ -9,6 +9,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Add brew zsh
 [[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath=( /opt/homebrew/share/zsh/site-functions "${fpath[@]}" )
 
+# Remove MacOS' weird history saving
+# https://apple.stackexchange.com/questions/427561/macos-zsh-sessions-zsh-history-and-setopt-append-history
+SHELL_SESSIONS_DISABLE=1
+
 # Improved auto completion
 autoload -Uz compinit && compinit
 
