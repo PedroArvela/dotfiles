@@ -14,7 +14,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 SHELL_SESSIONS_DISABLE=1
 
 # Improved auto completion
-autoload -Uz compinit && compinit
+# Move ZSH compdump to XDG cache (the folder must exist beforehand)
+mkdir -p $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+autoload -Uz compinit && compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit

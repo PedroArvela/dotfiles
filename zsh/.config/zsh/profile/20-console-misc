@@ -29,10 +29,6 @@ export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform.tfrc"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
 
-# Move ZSH compdump to XDG cache (the folder must exist beforehand)
-mkdir -p $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-
 # Some tools hardcode the kubectl paths
 [[ -d ~/.kube || -h ~/.kube ]] || ln -s "$XDG_CONFIG_HOME/kube" ~/.kube
 
