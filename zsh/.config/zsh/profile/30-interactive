@@ -1,5 +1,7 @@
 if [[ -o interactive ]]; then
 
+PS1='%F{green}%n%f@%F{cyan}%m%f %F{blue}%1~ %(?.%f.%F{red})%#%f '
+
 export CLICOLOR=1
 
 alias ls='ls --color=auto'
